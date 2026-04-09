@@ -1,0 +1,68 @@
+## 🍎 macOS Installation Guide
+
+> IMPORTANT: The .exe file is Windows-only. macOS users must run the Python script directly.
+
+
+### Step 1: Install Python 3
+
+Open Terminal (Cmd + Space, type "Terminal") and run:
+
+    python3 --version
+
+If Python is not installed, install via Homebrew:
+
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    brew install python3
+
+
+### Step 2: Install Required Dependencies
+
+In Terminal, run:
+
+    pip3 install deep-translator PyQt5
+
+
+### Step 3: Download and Run LocalizeIt
+
+    git clone https://github.com/yourusername/LocalizeIt.git
+    cd LocalizeIt
+    python3 main.py
+
+
+### Optional: Create a macOS App Bundle
+
+To create a double-clickable .app file:
+
+    pip3 install pyinstaller
+    pyinstaller --noconsole --onefile --windowed --name LocalizeIt main.py
+    open dist/
+
+Now double-click LocalizeIt.app to run!
+
+
+### Troubleshooting macOS Issues
+
+"pip3: command not found"
+    python3 -m ensurepip --upgrade
+
+"No module named 'PyQt5'"
+    pip3 install --user PyQt5
+
+"Permission denied"
+    chmod +x main.py
+
+App crashes? Run from Terminal to see error:
+    cd /path/to/LocalizeIt
+    python3 main.py
+
+
+### Requirements Summary (macOS)
+
+Python           3.7+           brew install python3
+deep-translator  Latest         pip3 install deep-translator
+PyQt5            Latest         pip3 install PyQt5
+PyInstaller      Latest         pip3 install pyinstaller (optional)
+
+
+Note: The application works identically on macOS and Windows.
+Only the packaging method differs.
